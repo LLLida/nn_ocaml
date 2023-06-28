@@ -15,4 +15,4 @@ Neural network has 2 inputs (x, y coordinates), some hidden layers and 3 outputs
 
 *** 3x2 upscale
 
-[[./pictures/dataset5.png]]
+[[./pictures/result5.png]]
