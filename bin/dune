@@ -1,0 +1,4 @@
+(executable
+ (public_name nn_ocaml)
+ (name upscale)
+ (libraries nn))
