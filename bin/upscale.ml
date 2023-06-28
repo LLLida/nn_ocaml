@@ -15,5 +15,5 @@ let it =
   else Sys.argv.(1) |> int_of_string in
 let m_trained, c = teach_fast x_train y_train 32 (it*1000) m in
 (* let m_trained, c = teach_bp x_train y_train (10*1000) m in *)
-model_save_image "./pictures/result5.png" (2*img.width) (2*img.height) m_trained;
+model_save_image "./pictures/result5.png" (3*img.width) (2*img.height) m_trained;
 printf "Cost: %f\n" c

@@ -1,0 +1,18 @@
+#+TITLE: Exploring machine learning with OCaml
+#+AUTHOR: Adil Mokhammad
+
+Currently I implemented only neural networks with back propagation. I only tried sigmoid as activation function by now.
+
+* Samples
+
+** Upscale
+
+Neural network has 2 inputs (x, y coordinates), some hidden layers and 3 outputs (color represented as RGB). It is possible to train network on an image so it remembers it. If you're not dummy and trained x, y being normalized then it's obviously possible to do upscaling.
+
+*** Original image
+
+[[./pictures/dataset5.png]]
+
+*** 3x2 upscale
+
+[[./pictures/dataset5.png]]
