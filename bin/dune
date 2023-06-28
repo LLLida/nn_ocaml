@@ -1,4 +1,11 @@
 (executable
- (public_name nn_ocaml)
+ (public_name upscale)
  (name upscale)
+ (modules upscale)
+ (libraries nn))
+
+(executable
+ (public_name topng)
+ (name topng)
+ (modules topng)
  (libraries nn))
