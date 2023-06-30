@@ -1,3 +1,5 @@
 (library
  (name nn)
- (libraries stb_image stb_image_write))
+ ; (public_name nn)
+ (libraries stb_image stb_image_write)
+ (wrapped false))
