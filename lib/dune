@@ -1,5 +1,7 @@
 (library
  (name nn)
  ; (public_name nn)
- (libraries stb_image stb_image_write)
- (wrapped false))
+ (modules nn nn_ui)
+ (libraries stb_image stb_image_write yojson graphics)
+ (wrapped false)
+ (preprocess (pps ppx_yojson_conv)))

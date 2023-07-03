@@ -1,5 +1,6 @@
 (* Simple library to do neural networks *)
 open Printf
+open Yojson
 
 let sum = List.fold_left ( +. ) 0.
 
@@ -7,7 +8,7 @@ let sigmoid x = 1. /. (1. +. (exp (-.x)))
 
 type matrix = { rows: int;
                 cols: int;
-                data: float array; }
+                data: float array; } [@@deriving yojson]
 
 let matrix_get m i j =
   assert (i < m.rows);
@@ -120,7 +121,7 @@ let matrix_print m name =
 type layer = { mutable w: matrix;
                mutable b: matrix;
                (** corresponds to previous layer's activation(current layer's input) *)
-               mutable a: matrix; }
+               mutable a: matrix; } [@@deriving yojson]
 
 let layer_rand i o =
   { w = matrix_rand o i;
@@ -143,7 +144,7 @@ let layer_forward l x =
   matrix_add l.b |>
   matrix_map sigmoid
 
-type model = layer list
+type model = layer list [@@deriving yojson]
 
 let model_rand i arch =
   let rec new_layer prev = function
@@ -388,3 +389,12 @@ let teach_fast x_train y_train chunk_size n m =
       teach (i+1) (learn_backprop m x y 1.) in
   let m = teach 0 m in
   m, cost m x_train y_train
+
+let model_save_to_file filepath model =
+  let str = Safe.to_string (yojson_of_model model) in
+  let oc = open_out filepath in
+  fprintf oc "%s" str;
+  close_out oc
+
+let model_read_from_file filepath =
+  model_of_yojson (Safe.from_file filepath)

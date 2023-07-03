@@ -2,10 +2,10 @@
 
 (name nn_ocaml)
 
-(generate_opam_files true)
+(generate_opam_files false)
 
 (source
- (github username/reponame))
+ (github LLLida/nn_ocaml))
 
 (authors "Adil Mokhammad")
 
